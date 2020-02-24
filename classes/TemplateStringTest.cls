@@ -1,5 +1,5 @@
 @IsTest
-private class TC_TemplateStringTest {
+private class TemplateStringTest {
     @IsTest
     static void testBehavior() {
         Account acc = new Account(
@@ -17,9 +17,9 @@ private class TC_TemplateStringTest {
         String message2TemplateString = 'This is a {!Account.Name} {!Opportunity.Name}';
 
         Test.startTest();
-        String message = TC_TemplateString.mergeFields(new Set<Id> { acc.Id }, messageTemplateString);
-        String message2a = TC_TemplateString.mergeFields(new Set<Id> { acc.Id }, message2TemplateString);
-        String message2b = TC_TemplateString.mergeFields(new Set<Id> { acc.Id, opp.Id }, message2TemplateString);
+        String message = TemplateString.mergeFields(new Set<Id> { acc.Id }, messageTemplateString);
+        String message2a = TemplateString.mergeFields(new Set<Id> { acc.Id }, message2TemplateString);
+        String message2b = TemplateString.mergeFields(new Set<Id> { acc.Id, opp.Id }, message2TemplateString);
         Test.stopTest();
 
         System.assertEquals('This is a ' + acc.Name, message);
